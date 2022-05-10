@@ -1,0 +1,36 @@
+<div *ngIf="not_modal" [not_modal]="true">
+<input (change)="upload($event.target.files)" type="file">
+<span>
+{{base}}
+</span>
+ 
+
+<div *ngIf="show_files">
+  <div *ngFor="let file of files; index as i;">
+    <img src="/api/folder/file/{{base}}{{base?'/':''}}{{file.name}}">
+    
+    <span>{{file.name}}</span>
+
+    <a [href]="file.url" [download]="file.name">Download</a>
+
+    <button type="button" (click)="delete(file.name); files.splice(i, 1);">
+      Delete</button>
+      
+    </div>
+</div>
+<div *ngIf="show_folders">
+  <form>
+    <input type="text" [(ngModel)]="name" name="name">
+    <button type="button" (click)="create(name)" [disabled]="!name">Create folder</button>
+  </form>
+  <div *ngFor="let folder of folders">
+    <span>{{folder.name}}</span>
+    
+  </div>
+</div>
+</div>
+<div *ngIf="show_picture">
+<div *ngFor="let file of files; index as i;">
+  <img src="/api/folder/file/{{base}}{{base?'/':''}}{{file.name}}">
+</div>
+</div>
