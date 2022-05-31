@@ -23,9 +23,7 @@ Use this power-tag to use module:
 <files></files>
 ```
 ```
-Step 4:
-Add FilesModule to client/app.module.ts
-```
+
 
 Tip: : 
 To initiate uploading files use
